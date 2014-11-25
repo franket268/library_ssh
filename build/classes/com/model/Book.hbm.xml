@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.model">
+	<class name="Book">
+		<id name="ISBN">
+			<generator class="assigned"/>
+		</id>
+		<property name="author"/>
+		<property name="name"/>
+		<property name="description"/>
+		<property name="location"/>
+		<set name="book_copy"  inverse="true" lazy="false">
+		    <key column="ISBN" />
+		    <one-to-many class='Book_copy'  />
+		</set>
+	</class>
+</hibernate-mapping>
